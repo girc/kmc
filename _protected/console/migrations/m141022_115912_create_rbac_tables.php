@@ -29,7 +29,7 @@ class m141022_115912_create_rbac_tables extends \yii\db\Migration
     {
         $authManager = Yii::$app->getAuthManager();
 
-        if (!$authManager instanceof DbManager) 
+        if (!$authManager instanceof DbManager)
         {
             throw new InvalidConfigException('You should configure "authManager" 
                 component to use database before executing this migration.');
@@ -42,7 +42,7 @@ class m141022_115912_create_rbac_tables extends \yii\db\Migration
         $authManager = $this->getAuthManager();
 
         $tableOptions = null;
-        if ($this->db->driverName === 'mysql') 
+        if ($this->db->driverName === 'mysql')
         {
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
