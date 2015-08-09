@@ -37,8 +37,8 @@ class UserProfile extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'full_name', 'created_time', 'updated_time'], 'required'],
-            [['user_id', 'created_time', 'updated_time'], 'integer'],
+            [['user_id', 'full_name', 'created_at', 'updated_at'], 'required'],
+            [['user_id', 'created_at', 'updated_at'], 'integer'],
             [['date_of_birth'], 'safe'],
             [['full_name', 'contact_no', 'address', 'work', 'avatar'], 'string', 'max' => 255],
             [['gender'], 'string', 'max' => 10],
@@ -61,8 +61,8 @@ class UserProfile extends \yii\db\ActiveRecord
             'address' => Yii::t('app', 'Address'),
             'work' => Yii::t('app', 'Work'),
             'avatar' => Yii::t('app', 'Avatar'),
-            'created_time' => Yii::t('app', 'Created Time'),
-            'updated_time' => Yii::t('app', 'Updated Time'),
+            'created_at' => Yii::t('app', 'Created Time'),
+            'updated_at' => Yii::t('app', 'Updated Time'),
         ];
     }
 
