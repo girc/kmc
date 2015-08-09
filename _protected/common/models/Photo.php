@@ -86,7 +86,7 @@ class Photo extends \yii\db\ActiveRecord
         return [
             [['category', 'rank', 'building_id', 'location_id'], 'integer'],
             [['inventory_id', 'description', 'original', 'medium', 'thumb', 'filename'], 'string'],
-            [['taken_time','created_time', 'updated_time'], 'safe'],
+            [['taken_time','created_at', 'updated_at'], 'safe'],
             [['verified'], 'boolean'],
             [['title'], 'string', 'max' => 255],
             [['image'], 'file', 'extensions' => ['jpg', 'gif', 'png'], 'maxSize' => 1024 * 1024 * 2],/* @see: upload_max_filesize in php.ini where 2M = 1024 * 1024 * 2 */
@@ -113,8 +113,8 @@ class Photo extends \yii\db\ActiveRecord
             'filename' => Yii::t('app', 'Original Filename'),
             'taken_time' => Yii::t('app', 'Taken Time'),
             'verified' => Yii::t('app', 'Verified'),
-            'created_time' => Yii::t('app', 'Created Time'),
-            'updated_time' => Yii::t('app', 'Updated Time'),
+            'created_at' => Yii::t('app', 'Created Time'),
+            'updated_at' => Yii::t('app', 'Updated Time'),
         ];
     }
 
@@ -147,8 +147,8 @@ class Photo extends \yii\db\ActiveRecord
                 ],
                 [// Auto populates Timestamp for created and update events
                     'class' => TimestampBehavior::className(),
-                    'createdAtAttribute' => 'created_time',
-                    'updatedAtAttribute' => 'updated_time',
+                    'createdAtAttribute' => 'created_at',
+                    'updatedAtAttribute' => 'updated_at',
                     'value' => new Expression("Now() AT TIME ZONE 'UTC'"),
                 ],
             ]
